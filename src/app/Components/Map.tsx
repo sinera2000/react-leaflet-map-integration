@@ -21,26 +21,36 @@ const Map: React.FC<MapProps> = (props) => {
   });
 
   return (
-    <MapContainer
-      center={[latLng.lat, latLng.lng]} //Map container
-      zoom={13}
-      scrollWheelZoom={false}
+    <div
+      className="map-container"
       style={{
-        height: "100%",
-        width: "100%",
-        alignItems: "center",
+        height: "500px",
+        width: "500px",
         marginLeft: "auto",
         marginRight: "auto",
-        marginTop: "20px",
       }}
     >
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+      <MapContainer
+        center={[latLng.lat, latLng.lng]} //Map container
+        zoom={13}
+        scrollWheelZoom={false}
+        style={{
+          height: "100%",
+          width: "100%",
+          alignItems: "center",
+          marginLeft: "auto",
+          marginRight: "auto",
+          marginTop: "20px",
+        }}
+      >
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
 
-      <LeafletControlGeocoder positionInfos={positionInfos} />
-    </MapContainer>
+        <LeafletControlGeocoder positionInfos={positionInfos} />
+      </MapContainer>
+    </div>
   );
 };
 
